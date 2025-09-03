@@ -1,136 +1,6 @@
-// "use client";
-
-// import Image from "next/image";
-// import { motion } from "framer-motion";
-
-// export default function HeroSection() {
-//   return (
-//     <section className="relative w-full min-h-[80vh] flex flex-col md:flex-row items-center justify-between overflow-hidden">
-//       {/* Left Side */}
-//       <div className="relative w-full md:w-1/2 h-[80vh] flex flex-col justify-center bg-gradient-to-r from-blue-900 to-blue-600 text-white px-8 md:px-16">
-//         {/* Dotted design */}
-//         <div className="absolute top-6 left-6 grid grid-cols-5 gap-1 opacity-50">
-//           {[...Array(25)].map((_, i) => (
-//             <div key={i} className="w-1 h-1 bg-white rounded-full"></div>
-//           ))}
-//         </div>
-
-//         <motion.h1
-//           initial={{ opacity: 0, y: 30 }}
-//           animate={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 0.6 }}
-//           className="text-3xl md:text-5xl font-bold uppercase leading-tight"
-//         >
-//           Supreme Direction <br /> World Wide Service
-//         </motion.h1>
-
-//         {/* Flags */}
-//         <div className="flex items-center gap-3 mt-6">
-//           <Image src="/flags/canada.png" alt="Canada" width={40} height={25} />
-//           <Image
-//             src="/flags/australia.png"
-//             alt="Australia"
-//             width={40}
-//             height={25}
-//           />
-//           <Image src="/flags/uk.png" alt="UK" width={40} height={25} />
-//           <Image src="/flags/nz.png" alt="New Zealand" width={40} height={25} />
-//           <Image src="/flags/eu.png" alt="Europe" width={40} height={25} />
-//         </div>
-
-//         <p className="mt-6 italic text-sm md:text-base">
-//           Contact us today and let us be the bridge to your success
-//         </p>
-//       </div>
-
-//       {/* Right Side */}
-//       <div className="relative w-full md:w-1/2 h-[80vh] flex items-center justify-center bg-gray-50 px-8 md:px-16">
-//         <motion.p
-//           initial={{ opacity: 0, x: 50 }}
-//           animate={{ opacity: 1, x: 0 }}
-//           transition={{ duration: 0.7 }}
-//           className="text-xl md:text-2xl font-semibold text-center text-gray-800 max-w-lg"
-//         >
-//           We are committed to delivering exceptional service <br /> and
-//           unmatched customer satisfaction
-//         </motion.p>
-//       </div>
-//     </section>
-//   );
-// }
-
-// components/HeroSection.js
-// "use client";
-
-// import Image from "next/image";
-
-// export default function HeroSection() {
-//   return (
-//     <section className="relative w-full min-h-[80vh] flex items-center justify-center">
-//       {/* Background image */}
-//       <div className="absolute inset-0 z-0">
-//         <Image
-//           src="buildings.jpg" // put your image in /public/building.jpg
-//           alt="Building"
-//           fill
-//           className="object-cover"
-//           priority
-//         />
-//         {/* Gradient overlay */}
-//         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 via-blue-800/70 to-blue-600/60" />
-//       </div>
-
-//       {/* Content */}
-//       <div className="relative z-10 w-full flex flex-col md:flex-row items-center justify-between px-8 md:px-16">
-//         {/* Left Side */}
-//         <div className="text-white max-w-xl">
-//           <h1 className="text-3xl md:text-5xl font-bold uppercase leading-tight">
-//             Supreme Direction <br /> World Wide Service
-//           </h1>
-
-//           {/* Flags */}
-//           <div className="flex items-center gap-3 mt-6">
-//             <Image
-//               src="/flags/canada.png"
-//               alt="Canada"
-//               width={40}
-//               height={25}
-//             />
-//             <Image
-//               src="/flags/australia.png"
-//               alt="Australia"
-//               width={40}
-//               height={25}
-//             />
-//             <Image src="/flags/uk.png" alt="UK" width={40} height={25} />
-//             <Image
-//               src="/flags/nz.png"
-//               alt="New Zealand"
-//               width={40}
-//               height={25}
-//             />
-//             <Image src="/flags/eu.png" alt="Europe" width={40} height={25} />
-//           </div>
-
-//           <p className="mt-6 italic text-sm md:text-base">
-//             Contact us today and let us be the bridge to your success
-//           </p>
-//         </div>
-
-//         {/* Right Side */}
-//         <div className="bg-white/90 rounded-2xl p-8 mt-10 md:mt-0 md:ml-10 shadow-lg">
-//           <p className="text-xl md:text-2xl font-semibold text-center text-gray-800 max-w-lg">
-//             We are committed to delivering exceptional service <br /> and
-//             unmatched customer satisfaction
-//           </p>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { FaArrowRight, FaCheckCircle, FaWhatsapp } from "react-icons/fa";
 
 export default function HeroSection() {
@@ -244,9 +114,11 @@ export default function HeroSection() {
                     transition={{ duration: 0.4, delay: 1.4 + index * 0.1 }}
                     whileHover={{ scale: 1.1 }}
                   >
-                    <img
+                    <Image
                       src={flag.src}
                       alt={flag.alt}
+                      width={64}
+                      height={48}
                       className="w-16 h-15 object-cover rounded shadow-lg group-hover:shadow-xl transition-all duration-300"
                     />
                     <p className="text-xs text-center mt-1 text-blue-200 group-hover:text-white transition-colors">
@@ -303,7 +175,7 @@ export default function HeroSection() {
                   transition={{ duration: 0.6, delay: 1.6 }}
                 >
                   <p className="text-center text-gray-800 font-semibold">
-                    "We are committed to delivering exceptional service and unmatched customer satisfaction"
+                    &quot;We are committed to delivering exceptional service and unmatched customer satisfaction&quot;
                   </p>
                 </motion.div>
               </motion.div>

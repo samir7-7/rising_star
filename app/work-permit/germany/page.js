@@ -12,6 +12,7 @@ import {
   FaBriefcase,
   FaWhatsapp
 } from "react-icons/fa";
+import Image from "next/image";
 
 export default function GermanyWorkPermit() {
   const openWhatsApp = () => {
@@ -73,10 +74,12 @@ export default function GermanyWorkPermit() {
       {/* Country Photo Header */}
       <section className="relative h-64 md:h-80 bg-gray-800 overflow-hidden">
         {/* Background Image */}
-        <img 
+        <Image 
           src="https://images.pexels.com/photos/1128416/pexels-photo-1128416.jpeg"
           alt="Germany landscape"
-          className="absolute inset-0 w-full h-full object-scale-down"
+          fill
+          sizes="100vw"
+          className="object-cover"
         />
         {/* Light overlay for better text readability */}
         <div className="absolute inset-0 bg-black opacity-40"></div>
@@ -110,7 +113,7 @@ export default function GermanyWorkPermit() {
               </h2>
               <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8 leading-relaxed">
                 Germany offers excellent career opportunities with competitive salaries, 
-                strong job security, and a high quality of life. As Europe's economic powerhouse, 
+                strong job security, and a high quality of life. As Europe&apos;s economic powerhouse, 
                 it provides numerous opportunities for skilled professionals across various industries.
               </p>
               

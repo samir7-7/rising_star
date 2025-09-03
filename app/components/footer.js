@@ -14,6 +14,7 @@ import {
   FaArrowUp,
 } from "react-icons/fa";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function Footer() {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -77,11 +78,7 @@ export default function Footer() {
               <div className="relative mb-6">
                 <div className="h-16 w-16 bg-gradient-to-br from-blue-500 to-orange-500 rounded-full flex items-center justify-center mb-4">
                   <span className="text-white font-bold text-xl">
-                    <img
-                      src="/logo.png"
-                      alt="Rising Diamond"
-                      className="h-15 w-15"
-                    />
+                    <Image src="/logo.png" alt="Rising Diamond" width={60} height={60} className="h-15 w-15 object-contain" />
                   </span>
                 </div>
                 <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-orange-500 rounded-full opacity-10 blur-sm"></div>

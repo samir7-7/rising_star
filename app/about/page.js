@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { FaWhatsapp, FaGlobe, FaFileAlt, FaHandshake, FaPlaneDeparture, FaCalendarAlt, FaMoneyBillWave } from "react-icons/fa";
 
 export default function AboutPage() {
@@ -48,7 +49,7 @@ export default function AboutPage() {
       {/* Mission banner with brand colors */}
       <section className="relative overflow-hidden">
         <div className="relative h-56 md:h-72 lg:h-80 bg-gray-900">
-          <img src="https://images.pexels.com/photos/8112172/pexels-photo-8112172.jpeg" alt="Mission" className="absolute inset-0 w-full h-full object-cover" />
+          <Image src="https://images.pexels.com/photos/8112172/pexels-photo-8112172.jpeg" alt="Mission" fill sizes="100vw" className="absolute inset-0 object-cover" />
           <div className="absolute inset-0 bg-black/40"></div>
           {/* Blue mission card */}
           <div className="container-responsive h-full relative">
@@ -162,7 +163,7 @@ export default function AboutPage() {
                   <circle cx="180" cy="180" r="120" stroke="#93C5FD" strokeWidth="10" strokeOpacity="0.45" />
                   <circle cx="180" cy="180" r="90" stroke="#3B82F6" strokeWidth="8" strokeOpacity="0.35" />
                 </svg>
-                <img src="/MD.png" alt="Managing Director" className="w-full h-auto object-contain drop-shadow-xl" />
+                <Image src="/MD.png" alt="Managing Director" width={500} height={300} className="w-full h-auto object-contain drop-shadow-xl" />
               </div>
             </motion.div>
 

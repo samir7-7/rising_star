@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import {
@@ -111,7 +112,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center space-x-4 group">
             <div className="relative">
               <div className={`${isScrolled ? 'h-12 w-12' : 'h-16 w-16'} bg-gradient-to-br from-blue-500 to-orange-500 rounded-full flex items-center justify-center group-hover:scale-105 transition-all duration-300`}>
-                <span className="text-white font-bold text-lg"><img src="/logo.png" alt="Rising Diamond" className="h-15 w-15" /></span>
+                <span className="text-white font-bold text-lg"><Image src="/logo.png" alt="Rising Diamond" width={60} height={60} className="h-15 w-15 object-contain" /></span>
               </div>
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-orange-500 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-sm"></div>
             </div>

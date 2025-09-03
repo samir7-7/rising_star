@@ -12,6 +12,7 @@ import {
   FaBriefcase,
   FaWhatsapp
 } from "react-icons/fa";
+import Image from "next/image";
 
 export default function NetherlandsWorkPermit() {
   const openWhatsApp = () => {
@@ -73,10 +74,12 @@ export default function NetherlandsWorkPermit() {
       {/* Country Photo Header */}
       <section className="relative h-64 md:h-80 bg-gray-800 overflow-hidden">
         {/* Background Image */}
-        <img 
+        <Image 
           src="/buildings.jpg"
           alt="Netherlands landscape"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          sizes="100vw"
+          className="object-cover"
         />
         {/* Light overlay for better text readability */}
         <div className="absolute inset-0 bg-black opacity-30"></div>
@@ -110,7 +113,7 @@ export default function NetherlandsWorkPermit() {
               </h2>
               <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8 leading-relaxed">
                 The Netherlands offers excellent career opportunities with a focus on innovation, 
-                work-life balance, and multicultural environment. It's home to many international 
+                work-life balance, and multicultural environment. It&apos;s home to many international 
                 companies and provides a welcoming atmosphere for expatriates.
               </p>
               

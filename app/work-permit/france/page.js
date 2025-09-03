@@ -12,6 +12,7 @@ import {
   FaBriefcase,
   FaWhatsapp
 } from "react-icons/fa";
+import Image from "next/image";
 
 export default function FranceWorkPermit() {
   const openWhatsApp = () => {
@@ -73,10 +74,12 @@ export default function FranceWorkPermit() {
       {/* Country Photo Header */}
       <section className="relative h-64 md:h-80 bg-gray-800 overflow-hidden">
         {/* Background Image */}
-        <img 
+        <Image 
           src="/buildings.jpg"
           alt="France landscape"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          sizes="100vw"
+          className="object-cover"
         />
         {/* Light overlay for better text readability */}
         <div className="absolute inset-0 bg-black opacity-30"></div>
@@ -110,7 +113,7 @@ export default function FranceWorkPermit() {
               </h2>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 France offers a perfect blend of professional opportunities, cultural richness, 
-                and excellent work-life balance. As one of Europe's leading economies, 
+                and excellent work-life balance. As one of Europe&apos;s leading economies, 
                 it provides diverse career paths across various industries.
               </p>
               

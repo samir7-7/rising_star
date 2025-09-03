@@ -12,6 +12,7 @@ import {
   FaBriefcase,
   FaWhatsapp
 } from "react-icons/fa";
+import Image from "next/image";
 
 export default function SwedenWorkPermit() {
   const openWhatsApp = () => {
@@ -73,10 +74,12 @@ export default function SwedenWorkPermit() {
       {/* Country Photo Header */}
       <section className="relative h-64 md:h-80 bg-gray-800 overflow-hidden">
         {/* Background Image */}
-        <img 
+        <Image 
           src="/buildings.jpg"
           alt="Sweden landscape"
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          sizes="100vw"
+          className="object-cover"
         />
         {/* Light overlay for better text readability */}
         <div className="absolute inset-0 bg-black opacity-30"></div>
@@ -89,7 +92,7 @@ export default function SwedenWorkPermit() {
           >
             <h1 className="text-3xl md:text-5xl font-bold mb-4">Work Permit in Sweden</h1>
             <p className="text-lg md:text-xl text-gray-200">
-              Your gateway to professional opportunities in Scandinavia's innovation hub
+              Your gateway to professional opportunities in Scandinavia&apos;s innovation hub
             </p>
           </motion.div>
         </div>
@@ -110,7 +113,7 @@ export default function SwedenWorkPermit() {
               </h2>
               <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8 leading-relaxed">
                 Sweden offers excellent work-life balance, innovative work culture, and strong 
-                social benefits. It's known for its progressive policies, gender equality, 
+                social benefits. It&apos;s known for its progressive policies, gender equality, 
                 and focus on sustainability and technology.
               </p>
               
