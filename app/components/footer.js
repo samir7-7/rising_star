@@ -5,10 +5,9 @@ import {
   FaPhoneAlt,
   FaWhatsapp,
   FaFacebook,
-  FaTwitter,
   FaInstagram,
   FaYoutube,
-  FaLinkedin,
+  FaTiktok,
   FaMapMarkerAlt,
   FaClock,
   FaArrowUp,
@@ -101,19 +100,19 @@ export default function Footer() {
               {[
                 {
                   icon: FaFacebook,
-                  href: "#",
+                  href: "https://www.facebook.com/share/16rFmbUs1D/?mibextid=wwXIfr",
                   label: "Facebook",
                   color: "hover:bg-blue-600",
                 },
                 {
-                  icon: FaTwitter,
-                  href: "#",
+                  icon: FaTiktok,
+                  href: "https://www.tiktok.com/@rising.diamond7?_t=ZG-8z7FmM5C0tU&_r=1",
                   label: "Twitter",
                   color: "hover:bg-blue-400",
                 },
                 {
                   icon: FaInstagram,
-                  href: "#",
+                  href: "https://www.instagram.com/rising_diamond_consultancy?igsh=ZGZxMG0wMXdkenI2&utm_source=qr",
                   label: "Instagram",
                   color: "hover:bg-pink-500",
                 },
@@ -122,12 +121,6 @@ export default function Footer() {
                   href: "#",
                   label: "YouTube",
                   color: "hover:bg-red-600",
-                },
-                {
-                  icon: FaLinkedin,
-                  href: "#",
-                  label: "LinkedIn",
-                  color: "hover:bg-blue-700",
                 },
               ].map((social, index) => (
                 <motion.a

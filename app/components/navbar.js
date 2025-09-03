@@ -12,6 +12,7 @@ import {
   FaBars,
   FaTimes,
   FaWhatsapp,
+  FaTiktok,
 } from "react-icons/fa";
 import { HiMail } from "react-icons/hi";
 
@@ -86,16 +87,16 @@ export default function Navbar() {
           
           <div className="flex items-center space-x-6">
           <div className="flex space-x-3">
-              <a href="#" className="bg-white/20 hover:bg-white/30 p-2 rounded-full transition-all duration-300 hover:scale-110" aria-label="Facebook">
+              <a href="https://www.facebook.com/share/16rFmbUs1D/?mibextid=wwXIfr" target="_blank" className="bg-white/20 hover:bg-white/30 p-2 rounded-full transition-all duration-300 hover:scale-110" aria-label="Facebook">
                 <FaFacebook className="text-sm" />
             </a>
-              <a href="#" className="bg-white/20 hover:bg-white/30 p-2 rounded-full transition-all duration-300 hover:scale-110" aria-label="Twitter">
-                <FaTwitter className="text-sm" />
+              <a href="https://www.tiktok.com/@rising.diamond7?_t=ZG-8z7FmM5C0tU&_r=1" target="_blank" className="bg-white/20 hover:bg-white/30 p-2 rounded-full transition-all duration-300 hover:scale-110" aria-label="Twitter">
+                <FaTiktok className="text-sm" />
             </a>
-              <a href="#" className="bg-white/20 hover:bg-white/30 p-2 rounded-full transition-all duration-300 hover:scale-110" aria-label="Instagram">
+              <a href="https://www.instagram.com/rising_diamond_consultancy?igsh=ZGZxMG0wMXdkenI2&utm_source=qr" target="_blank" className="bg-white/20 hover:bg-white/30 p-2 rounded-full transition-all duration-300 hover:scale-110" aria-label="Instagram">
                 <FaInstagram className="text-sm" />
             </a>
-              <a href="#" className="bg-white/20 hover:bg-white/30 p-2 rounded-full transition-all duration-300 hover:scale-110" aria-label="YouTube">
+              <a href="#" target="_blank" className="bg-white/20 hover:bg-white/30 p-2 rounded-full transition-all duration-300 hover:scale-110" aria-label="YouTube">
                 <FaYoutube className="text-sm" />
             </a>
             </div>
