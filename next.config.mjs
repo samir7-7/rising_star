@@ -23,7 +23,6 @@ const nextConfig = {
   poweredByHeader: false,
   generateEtags: false,
   reactStrictMode: true,
-  swcMinify: true,
   output: 'standalone',
   // Performance optimizations
   onDemandEntries: {
