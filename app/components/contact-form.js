@@ -89,7 +89,7 @@ export default function ContactForm() {
           Get In Touch
         </h2>
         <p className="text-gray-600 max-w-md mx-auto">
-          Fill out the form below and we'll get back to you as soon as possible.
+          Fill out the form below and we&apos;ll get back to you as soon as possible.
         </p>
       </motion.div>
 

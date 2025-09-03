@@ -92,7 +92,7 @@ export default function GermanyWorkPermit() {
           >
             <h1 className="text-3xl md:text-5xl font-bold mb-4">Work Permit in Germany</h1>
             <p className="text-lg md:text-xl text-gray-200">
-              Your gateway to professional opportunities in Europe's largest economy
+              Your gateway to professional opportunities in Europe&apos;s largest economy
             </p>
           </motion.div>
         </div>

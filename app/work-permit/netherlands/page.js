@@ -92,7 +92,7 @@ export default function NetherlandsWorkPermit() {
           >
             <h1 className="text-3xl md:text-5xl font-bold mb-4">Work Permit in Netherlands</h1>
             <p className="text-lg md:text-xl text-gray-200">
-              Your gateway to professional opportunities in Europe's innovation hub
+              Your gateway to professional opportunities in Europe&apos;s innovation hub
             </p>
           </motion.div>
         </div>

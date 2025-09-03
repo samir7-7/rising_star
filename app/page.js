@@ -263,7 +263,7 @@ export default function Home() {
               Start Your International Education Journey Today
             </h2>
             <p className="text-xl text-orange-100 mb-8 max-w-3xl mx-auto">
-              Don't let your dreams wait. Our expert consultants are ready to guide you through 
+              Don&apos;t let your dreams wait. Our expert consultants are ready to guide you through 
               every step of your international education journey.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
