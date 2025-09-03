@@ -14,32 +14,32 @@ import {
 } from "react-icons/fa";
 import Image from "next/image";
 
-export default function FranceWorkPermit() {
+export default function MaltaWorkPermit() {
   const openWhatsApp = () => {
     const phoneNumber = "351920448876";
-    const message = "Hello! I'm interested in work permit services for France. Can you help me with more information?";
+    const message = "Hello! I'm interested in work permit services for Malta. Can you help me with more information?";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
   const workPermits = [
     {
-      title: "Talent Passport",
-      description: "For highly skilled professionals and investors",
-      requirements: ["University degree", "Job offer or business plan", "French language skills"],
-      duration: "4 years (renewable)"
+      title: "Work Permit",
+      description: "For employees with job offer from Swedish company",
+      requirements: ["Job offer from Swedish employer", "Valid passport", "Health insurance"],
+      duration: "2 years (renewable)"
     },
     {
-      title: "Employee Visa",
-      description: "For workers with job offer from French company",
-      requirements: ["Job offer from French employer", "Professional qualifications", "Work contract"],
-      duration: "1-3 years"
+      title: "EU Blue Card",
+      description: "For highly qualified professionals",
+      requirements: ["University degree", "Job offer with high salary", "Professional qualifications"],
+      duration: "2 years (renewable)"
     },
     {
-      title: "Entrepreneur Visa",
-      description: "For business owners and investors",
-      requirements: ["Business plan", "Investment proof", "Economic impact assessment"],
-      duration: "1-4 years"
+      title: "Self-Employment",
+      description: "For entrepreneurs and freelancers",
+      requirements: ["Business plan", "Financial proof", "Market analysis"],
+      duration: "2 years (renewable)"
     }
   ];
 
@@ -47,25 +47,25 @@ export default function FranceWorkPermit() {
     "Valid passport (minimum 6 months validity)",
     "Completed visa application form",
     "Recent passport-size photographs",
-    "Job offer letter from French employer",
+    "Job offer letter from Swedish employer",
     "Educational certificates (translated and attested)",
     "Professional experience certificates",
-    "French language proficiency certificate (if required)",
+    "English language proficiency certificate",
     "Health insurance certificate",
     "Financial proof (bank statements)",
     "Criminal background check",
     "Medical examination certificate",
-    "Accommodation proof in France"
+    "Accommodation proof in Malta"
   ];
 
   const popularJobs = [
     "Software Developer",
+    "Data Scientist",
     "Marketing Manager",
     "Financial Analyst",
     "Project Manager",
-    "Research Scientist",
     "Business Consultant",
-    "Design Engineer",
+    "Research Engineer",
     "Sales Manager"
   ];
 
@@ -76,7 +76,7 @@ export default function FranceWorkPermit() {
         {/* Background Image */}
         <Image 
           src="/buildings.jpg"
-          alt="France landscape"
+          alt="Malta landscape"
           fill
           sizes="100vw"
           className="object-cover"
@@ -90,60 +90,60 @@ export default function FranceWorkPermit() {
             transition={{ duration: 0.8 }}
             className="text-center text-white"
           >
-            <h1 className="text-3xl md:text-5xl font-bold mb-4">Work Permit in France</h1>
+            <h1 className="text-3xl md:text-5xl font-bold mb-4">Work Permit in Malta</h1>
             <p className="text-lg md:text-xl text-gray-200">
-              Your gateway to professional opportunities in the heart of Europe
+              Your gateway to professional opportunities in Scandinavia&apos;s innovation hub
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Country Overview */}
-      <section className="py-20 bg-white">
+      <section className="py-16 md:py-20 bg-white">
         <div className="container-responsive">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-                Why Choose France for Work?
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-4 md:mb-6">
+                Why Choose Malta for Work?
               </h2>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                France offers a perfect blend of professional opportunities, cultural richness, 
-                and excellent work-life balance. As one of Europe&apos;s leading economies, 
-                it provides diverse career paths across various industries.
+              <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8 leading-relaxed">
+                Malta offers excellent work-life balance, innovative work culture, and strong 
+                social benefits. It&apos;s known for its progressive policies, gender equality, 
+                and focus on sustainability and technology.
               </p>
               
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                 <div className="flex items-center gap-3">
-                  <FaEuroSign className="text-blue-500 text-2xl" />
+                  <FaEuroSign className="text-blue-500 text-xl md:text-2xl" />
                   <div>
-                    <h3 className="font-semibold text-gray-800">Competitive Salaries</h3>
-                    <p className="text-sm text-gray-600">Attractive compensation</p>
+                    <h3 className="font-semibold text-gray-800 text-sm md:text-base">High Salaries</h3>
+                    <p className="text-xs md:text-sm text-gray-600">Competitive compensation</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <FaUsers className="text-blue-500 text-2xl" />
+                  <FaUsers className="text-blue-500 text-xl md:text-2xl" />
                   <div>
-                    <h3 className="font-semibold text-gray-800">Work-Life Balance</h3>
-                    <p className="text-sm text-gray-600">35-hour work week</p>
+                    <h3 className="font-semibold text-gray-800 text-sm md:text-base">Work-Life Balance</h3>
+                    <p className="text-xs md:text-sm text-gray-600">Flexible working hours</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <FaLanguage className="text-blue-500 text-2xl" />
+                  <FaLanguage className="text-blue-500 text-xl md:text-2xl" />
                   <div>
-                    <h3 className="font-semibold text-gray-800">Cultural Hub</h3>
-                    <p className="text-sm text-gray-600">Rich cultural heritage</p>
+                    <h3 className="font-semibold text-gray-800 text-sm md:text-base">English Friendly</h3>
+                    <p className="text-xs md:text-sm text-gray-600">High English proficiency</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <FaMapMarkerAlt className="text-blue-500 text-2xl" />
+                  <FaMapMarkerAlt className="text-blue-500 text-xl md:text-2xl" />
                   <div>
-                    <h3 className="font-semibold text-gray-800">Strategic Location</h3>
-                    <p className="text-sm text-gray-600">Gateway to Europe</p>
+                    <h3 className="font-semibold text-gray-800 text-sm md:text-base">Innovation Hub</h3>
+                    <p className="text-xs md:text-sm text-gray-600">Tech and startup friendly</p>
                   </div>
                 </div>
               </div>
@@ -154,29 +154,29 @@ export default function FranceWorkPermit() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-gradient-to-br from-blue-500 to-orange-500 rounded-3xl p-8 text-white"
+              className="bg-gradient-to-br from-blue-500 to-orange-500 rounded-2xl md:rounded-3xl p-6 md:p-8 text-white"
             >
-              <h3 className="text-2xl font-bold mb-6">Quick Facts</h3>
-              <div className="space-y-4">
+              <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Quick Facts</h3>
+              <div className="space-y-3 md:space-y-4">
                 <div className="flex items-center gap-3">
                   <FaUsers className="text-orange-300" />
-                  <span>Population: 67+ million</span>
+                  <span className="text-sm md:text-base">Population: 10+ million</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <FaEuroSign className="text-orange-300" />
-                  <span>Currency: Euro (€)</span>
+                  <span className="text-sm md:text-base">Currency: Swedish Krona (SEK)</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <FaLanguage className="text-orange-300" />
-                  <span>Official Language: French</span>
+                  <span className="text-sm md:text-base">Official Language: Swedish</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <FaClock className="text-orange-300" />
-                  <span>Time Zone: CET (UTC+1)</span>
+                  <span className="text-sm md:text-base">Time Zone: CET (UTC+1)</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <FaMapMarkerAlt className="text-orange-300" />
-                  <span>Capital: Paris</span>
+                  <span className="text-sm md:text-base">Capital: Stockholm</span>
                 </div>
               </div>
             </motion.div>
@@ -198,7 +198,7 @@ export default function FranceWorkPermit() {
               Types of Work Permits
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              France offers various work permit options depending on your qualifications, 
+              Malta offers various work permit options depending on your qualifications, 
               job offer, and professional background.
             </p>
           </motion.div>
@@ -259,7 +259,7 @@ export default function FranceWorkPermit() {
               Popular Job Opportunities
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              France has a strong demand for skilled professionals in various sectors.
+              Malta has a strong demand for skilled professionals in various sectors.
             </p>
           </motion.div>
 

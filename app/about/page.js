@@ -49,7 +49,7 @@ export default function AboutPage() {
       {/* Mission banner with brand colors */}
       <section className="relative overflow-hidden">
         <div className="relative h-56 md:h-72 lg:h-80 bg-gray-900">
-          <Image src="https://images.pexels.com/photos/8112172/pexels-photo-8112172.jpeg" alt="Mission" fill sizes="100vw" className="absolute inset-0 object-cover" />
+          <Image src="https://images.pexels.com/photos/8550846/pexels-photo-8550846.jpeg" alt="Mission" fill sizes="100vw" className="absolute inset-0 object-cover" />
           <div className="absolute inset-0 bg-black/40"></div>
           {/* Blue mission card */}
           <div className="container-responsive h-full relative">

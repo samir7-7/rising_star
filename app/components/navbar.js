@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import {
   FaFacebook,
-  FaTwitter,
   FaInstagram,
   FaYoutube,
   FaPhoneAlt,
@@ -41,9 +40,9 @@ export default function Navbar() {
     return () => document.removeEventListener("click", handleClickOutside);
   }, [isOpen]);
 
-  // helper for styling
+  // helper for styling - Optimized
   const linkClass = (href) =>
-    `relative pb-1 transition-all duration-300 font-medium ${
+    `relative pb-1 transition-all duration-200 font-medium ${
       pathname === href ? "text-yellow-300" : "hover:text-yellow-200"
     }`;
 
@@ -55,7 +54,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className={`w-full transition-all duration-300 ${isScrolled ? 'shadow-xl' : 'shadow-lg'}`}>
+    <header className={`w-full transition-all duration-200 ${isScrolled ? 'shadow-xl' : 'shadow-lg'}`}>
       {/* 🔶 Top bar - Enhanced for laptop */}
       <div className="bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 text-white text-sm hidden lg:block relative overflow-hidden p-3">
         {/* Background pattern */}
@@ -112,10 +111,10 @@ export default function Navbar() {
           {/* Logo - Enhanced */}
           <Link href="/" className="flex items-center space-x-4 group">
             <div className="relative">
-              <div className={`${isScrolled ? 'h-12 w-12' : 'h-16 w-16'} bg-gradient-to-br from-blue-500 to-orange-500 rounded-full flex items-center justify-center group-hover:scale-105 transition-all duration-300`}>
+              <div className={`${isScrolled ? 'h-12 w-12' : 'h-16 w-16'} bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center group-hover:scale-105 transition-all duration-200`}>
                 <span className="text-white font-bold text-lg"><Image src="/logo.png" alt="Rising Diamond" width={60} height={60} className="h-15 w-15 object-contain" /></span>
               </div>
-              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-orange-500 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-sm"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-orange-500 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-200 blur-sm"></div>
             </div>
             <div className="hidden sm:block">
               <h1 className="font-bold text-xl text-gray-800 group-hover:text-blue-600 transition-colors">Rising Diamond</h1>
@@ -128,7 +127,7 @@ export default function Navbar() {
             <li className="relative group">
               <Link 
                 href="/" 
-                className={`px-4 py-2 rounded-lg transition-all duration-300 ${
+                className={`px-4 py-2 rounded-lg transition-all duration-200 ${
                   pathname === "/" 
                     ? "text-blue-600 bg-blue-50 font-semibold" 
                     : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
@@ -136,7 +135,7 @@ export default function Navbar() {
               >
                 Home
               </Link>
-              <div className={`absolute left-0 right-0 -bottom-1 h-0.5 bg-gradient-to-r from-blue-500 to-orange-500 transition-all duration-300 rounded-full
+              <div className={`absolute left-0 right-0 -bottom-1 h-0.5 bg-gradient-to-r from-blue-500 to-orange-500 transition-all duration-200 rounded-full
                 ${
                   pathname === "/"
                     ? "opacity-100 scale-x-100"
@@ -148,15 +147,15 @@ export default function Navbar() {
             <li className="relative group">
               <Link 
                 href="/about" 
-                className={`px-4 py-2 rounded-lg transition-all duration-300 ${
+                className={`px-4 py-2 rounded-lg transition-all duration-200 ${
                   pathname === "/about" 
                     ? "text-blue-600 bg-blue-50 font-semibold" 
                     : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
                 }`}
               >
                 About
-              </Link>
-              <div className={`absolute left-0 right-0 -bottom-1 h-0.5 bg-gradient-to-r from-blue-500 to-orange-500 transition-all duration-300 rounded-full
+                </Link>
+              <div className={`absolute left-0 right-0 -bottom-1 h-0.5 bg-gradient-to-r from-blue-500 to-orange-500 transition-all duration-200 rounded-full
                 ${
                   pathname === "/about"
                     ? "opacity-100 scale-x-100"
@@ -167,84 +166,54 @@ export default function Navbar() {
 
             {/* Work Permit Dropdown */}
             <li className="relative group">
-              <span className="px-4 py-2 rounded-lg transition-all duration-300 text-gray-700 hover:text-blue-600 hover:bg-gray-50 cursor-pointer inline-flex items-center align-middle leading-none gap-1">
+              <span className="px-4 py-2 rounded-lg transition-all duration-200 text-gray-700 hover:text-blue-600 hover:bg-gray-50 cursor-pointer inline-flex items-center align-middle leading-none gap-1">
                 Work Permit
                 <svg className="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </span>
-              <div className="absolute left-0 right-0 -bottom-1 h-0.5 bg-gradient-to-r from-blue-500 to-orange-500 transition-all duration-300 rounded-full opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100"></div>
+              <div className="absolute left-0 right-0 -bottom-1 h-0.5 bg-gradient-to-r from-blue-500 to-orange-500 transition-all duration-200 rounded-full opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100"></div>
               
-              {/* First Level Dropdown - European Countries */}
-              <div className="absolute left-0 top-full mt-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+              {/* First Level Dropdown - Canada + Schengen & European Countries */}
+              <div className="absolute left-0 top-full mt-1 w-72 bg-white rounded-lg shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                 <div className="py-2">
-                  <div className="px-4 py-2 text-sm font-semibold text-gray-500 border-b border-gray-100">
-                    European Countries
-                  </div>
-                  
-                  {/* Germany */}
+                  {/* Canada */}
+                  <Link 
+                    href="/work-permit/canada"
+                    className="flex items-center justify-between px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                  >
+                    <span>Canada</span>
+                  </Link>
+
+                  {/* Schengen & European Countries with nested submenu */}
                   <div className="relative group/sub">
-                    <Link 
-                      href="/work-permit/germany" 
-                      className="flex items-center justify-between px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
-                    >
-                      <span>Germany</span>
+                    <div className="flex items-center justify-between px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-default">
+                      <span>Schengen & European Countries</span>
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
-                    </Link>
-                  </div>
-                  
-                  {/* France */}
-                  <div className="relative group/sub">
-                    <Link 
-                      href="/work-permit/france" 
-                      className="flex items-center justify-between px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
-                    >
-                      <span>France</span>
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </Link>
-                  </div>
-                  
-                  {/* Netherlands */}
-                  <div className="relative group/sub">
-                    <Link 
-                      href="/work-permit/netherlands" 
-                      className="flex items-center justify-between px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
-                    >
-                      <span>Netherlands</span>
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </Link>
-                  </div>
-                  
-                  {/* Sweden */}
-                  <div className="relative group/sub">
-                    <Link 
-                      href="/work-permit/sweden" 
-                      className="flex items-center justify-between px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
-                    >
-                      <span>Sweden</span>
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </Link>
-                  </div>
-                  
-                  {/* Denmark */}
-                  <div className="relative group/sub">
-                    <Link 
-                      href="/work-permit/denmark" 
-                      className="flex items-center justify-between px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
-                    >
-                      <span>Denmark</span>
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </Link>
+                    </div>
+                    {/* Nested submenu */}
+                    <div className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-200">
+                      <ul className="py-2">
+                        {[
+                          { href: "/work-permit/romania", label: "Romania" },
+                          { href: "/work-permit/poland", label: "Poland" },
+                          { href: "/work-permit/malta", label: "Malta" },
+                          { href: "/work-permit/croatia", label: "Croatia" },
+                          { href: "/work-permit/denmark", label: "Denmark" },
+                        ].map((item) => (
+                          <li key={item.href}>
+                            <Link
+                              href={item.href}
+                              className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                            >
+                              {item.label}
+                            </Link>
+              </li>
+            ))}
+          </ul>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -253,7 +222,7 @@ export default function Navbar() {
             <li className="relative group">
               <Link 
                 href="/services" 
-                className={`px-4 py-2 rounded-lg transition-all duration-300 ${
+                className={`px-4 py-2 rounded-lg transition-all duration-200 ${
                   pathname === "/services" 
                     ? "text-blue-600 bg-blue-50 font-semibold" 
                     : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
@@ -261,7 +230,7 @@ export default function Navbar() {
               >
                 Services
               </Link>
-              <div className={`absolute left-0 right-0 -bottom-1 h-0.5 bg-gradient-to-r from-blue-500 to-orange-500 transition-all duration-300 rounded-full
+              <div className={`absolute left-0 right-0 -bottom-1 h-0.5 bg-gradient-to-r from-blue-500 to-orange-500 transition-all duration-200 rounded-full
                 ${
                   pathname === "/services"
                     ? "opacity-100 scale-x-100"
@@ -275,7 +244,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center space-x-4">
             <button 
               onClick={openWhatsApp}
-              className="bg-green-500 hover:bg-green-600 text-white px-6 py-2.5 rounded-full font-medium transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl hover:scale-105"
+              className="bg-green-500 hover:bg-green-600 text-white px-6 py-2.5 rounded-full font-medium transition-all duration-200 flex items-center gap-2 shadow-lg hover:shadow-xl hover:scale-105"
             >
               <FaWhatsapp className="text-lg" />
               <span>WhatsApp</span>
@@ -293,25 +262,25 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Menu */}
-        <div className={`lg:hidden transition-all duration-300 ease-in-out overflow-hidden ${
-          isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        <div className={`lg:hidden transition-all duration-200 ease-in-out ${
+          isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
         }`}>
-          <div className="bg-gray-50 border-t border-gray-200 px-4 py-4">
+          <div className="bg-gray-50 border-t border-gray-200 px-4 py-4 max-h-[80vh] overflow-y-auto">
             <ul className="flex flex-col space-y-2">
               {[
                 { href: "/", label: "Home" },
                 { href: "/about", label: "About" },
                 { href: "/work-permit", label: "Work Permit", submenu: [
-                  { href: "/work-permit/germany", label: "Germany" },
-                  { href: "/work-permit/france", label: "France" },
-                  { href: "/work-permit/netherlands", label: "Netherlands" },
-                  { href: "/work-permit/sweden", label: "Sweden" },
-                  { href: "/work-permit/denmark", label: "Denmark" },
+                  { href: "/work-permit/canada", label: "Canada" },
+                  { label: "Schengen & European Countries", nested: [
+                    { href: "/work-permit/romania", label: "Romania" },
+                    { href: "/work-permit/poland", label: "Poland" },
+                    { href: "/work-permit/malta", label: "Malta" },
+                    { href: "/work-permit/croatia", label: "Croatia" },
+                    { href: "/work-permit/denmark", label: "Denmark" },
+                  ]},
                 ]},
-                { href: "/courses", label: "Courses" },
                 { href: "/services", label: "Services" },
-                { href: "/contact", label: "Contact" },
-                { href: "/news", label: "News" },
               ].map((link) => (
                 <li key={link.href}>
                   {link.submenu ? (
@@ -319,28 +288,56 @@ export default function Navbar() {
                       <div className="block py-3 px-4 text-gray-700 font-medium">
                         {link.label}
                       </div>
-                      <ul className="ml-4 space-y-1">
-                        {link.submenu.map((subLink) => (
-                          <li key={subLink.href}>
-                            <Link
-                              href={subLink.href}
-                              className={`block py-2 px-4 rounded-lg transition-all duration-200 text-sm ${
-                                pathname === subLink.href
-                                  ? "text-blue-600 font-semibold bg-blue-50"
-                                  : "text-gray-600 hover:text-blue-600 hover:bg-gray-100"
-                              }`}
-                              onClick={() => setIsOpen(false)}
-                            >
-                              {subLink.label}
-                            </Link>
+                      <ul className="ml-2 space-y-1">
+                        {link.submenu.map((subItem, idx) => (
+                          <li key={idx}>
+                            {subItem.nested ? (
+                              <details className="group">
+                                <summary className="flex items-center justify-between py-2 px-3 text-sm text-gray-700 rounded-lg cursor-pointer hover:bg-gray-100">
+                                  <span>{subItem.label}</span>
+                                  <svg className="w-4 h-4 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                  </svg>
+                                </summary>
+                                <ul className="ml-3 mt-1 space-y-1">
+                                  {subItem.nested.map((nested) => (
+                                    <li key={nested.href}>
+                                      <Link
+                                        href={nested.href}
+                                        className={`block py-2 px-3 rounded-lg text-sm ${
+                                          pathname === nested.href
+                                            ? "text-blue-600 font-semibold bg-blue-50"
+                                            : "text-gray-600 hover:text-blue-600 hover:bg-gray-100"
+                                        }`}
+                                        onClick={() => setIsOpen(false)}
+                                      >
+                                        {nested.label}
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </details>
+                            ) : (
+                              <Link
+                                href={subItem.href}
+                                className={`block py-2 px-3 rounded-lg text-sm ${
+                                  pathname === subItem.href
+                                    ? "text-blue-600 font-semibold bg-blue-50"
+                                    : "text-gray-600 hover:text-blue-600 hover:bg-gray-100"
+                                }`}
+                                onClick={() => setIsOpen(false)}
+                              >
+                                {subItem.label}
+                              </Link>
+                            )}
                           </li>
                         ))}
                       </ul>
                     </div>
                   ) : (
-                  <Link
-                    href={link.href}
-                      className={`block py-3 px-4 rounded-lg transition-all duration-200 ${
+                    <Link
+                      href={link.href}
+                        className={`block py-3 px-4 rounded-lg transition-all duration-150 ${
                       pathname === link.href
                           ? "text-blue-600 font-semibold bg-blue-50"
                           : "text-gray-700 hover:text-blue-600 hover:bg-gray-100"
@@ -359,7 +356,7 @@ export default function Navbar() {
                     openWhatsApp();
                     setIsOpen(false);
                   }}
-                  className="bg-green-500 hover:bg-green-600 text-white w-full py-3 rounded-lg font-medium transition-all duration-300 flex items-center justify-center gap-2"
+                  className="bg-green-500 hover:bg-green-600 text-white w-full py-3 rounded-lg font-medium transition-all duration-200 flex items-center justify-center gap-2"
                 >
                   <FaWhatsapp className="text-lg" />
                   <span>WhatsApp Us</span>

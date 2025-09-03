@@ -80,9 +80,9 @@ export default function ContactForm() {
   return (
     <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 h-full flex flex-col">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.4 }}
         className="text-center mb-8"
       >
         <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3">
@@ -97,9 +97,9 @@ export default function ContactForm() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Name Field */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.3, delay: 0.05 }}
             className="relative"
           >
             <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
@@ -122,9 +122,9 @@ export default function ContactForm() {
 
           {/* Email Field */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 10 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
             className="relative"
           >
             <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
@@ -149,9 +149,9 @@ export default function ContactForm() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Country Field */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.3, delay: 0.15 }}
             className="relative"
           >
             <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-2">
@@ -183,9 +183,9 @@ export default function ContactForm() {
 
           {/* WhatsApp Field */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 10 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
             className="relative"
           >
             <label htmlFor="whatsapp" className="block text-sm font-medium text-gray-700 mb-2">
@@ -209,9 +209,9 @@ export default function ContactForm() {
 
         {/* Subject Field */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
+          transition={{ duration: 0.3, delay: 0.25 }}
           className="relative"
         >
           <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
@@ -234,9 +234,9 @@ export default function ContactForm() {
 
         {/* Message Field */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
+          transition={{ duration: 0.3, delay: 0.3 }}
           className="relative"
         >
           <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
@@ -256,9 +256,9 @@ export default function ContactForm() {
 
         {/* Submit Button */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.7 }}
+          transition={{ duration: 0.3, delay: 0.35 }}
           className="text-center mt-auto"
         >
           <button
@@ -287,9 +287,9 @@ export default function ContactForm() {
         {/* Status Messages */}
         {submitStatus && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.2 }}
             className={`text-center p-4 rounded-lg ${
               submitStatus === "success"
                 ? "bg-green-50 text-green-800 border border-green-200"

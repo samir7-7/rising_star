@@ -6,11 +6,15 @@ import Footer from "./components/footer";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
 });
 
 export const metadata = {
@@ -31,13 +35,22 @@ export const metadata = {
   },
   viewport: "width=device-width, initial-scale=1",
   robots: "index, follow",
+  other: {
+    "X-UA-Compatible": "IE=edge",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preload" href="/buildings.jpg" as="image" />
+        <link rel="dns-prefetch" href="//images.pexels.com" />
+        <link rel="dns-prefetch" href="//www.google.com" />
+        <meta name="theme-color" content="#1e40af" />
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
       >
         <Navbar />
         {children}

@@ -49,7 +49,7 @@ export default function Footer() {
     <footer className="relative bg-white border-t border-gray-200 pt-10">
       {/* Scroll to Top Button */}
       <motion.button
-        className={`fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 bg-gradient-to-r from-blue-500 to-orange-500 hover:from-blue-600 hover:to-orange-600 text-white p-3 rounded-full shadow-lg transition-all duration-300 ${
+        className={`fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 bg-gradient-to-r from-blue-500 to-orange-500 hover:from-blue-600 hover:to-orange-600 text-white p-3 rounded-full shadow-lg transition-all duration-200 ${
           showScrollTop
             ? "opacity-100 translate-y-0"
             : "opacity-0 translate-y-4"
@@ -127,7 +127,7 @@ export default function Footer() {
                   key={social.label}
                   href={social.href}
                   className={`bg-gray-100 ${social.color} text-gray-600 hover:text-white p-3 rounded-full transition-all duration-300`}
-                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  whileHover={{ scale: 1.05, rotate: 2 }}
                   whileTap={{ scale: 0.95 }}
                   aria-label={social.label}
                 >
@@ -146,10 +146,9 @@ export default function Footer() {
               {[
                 { href: "/", label: "Home" },
                 { href: "/about", label: "About Us" },
-                { href: "/study-abroad", label: "Study Abroad" },
-                { href: "/courses", label: "Courses" },
+                { href: "/work-permit/poland", label: "Work Permit" },
                 { href: "/services", label: "Services" },
-                { href: "/contact", label: "Contact" },
+                { href: "#contact", label: "Contact" },
               ].map((link) => (
                 <li key={link.href}>
                   <a
@@ -170,12 +169,11 @@ export default function Footer() {
             </h3>
             <ul className="space-y-4 text-center">
               {[
-                "Student Visa Processing",
-                "University Applications",
-                "IELTS/PTE Preparation",
+                "Visa Processing",
+                "Domestic and International Tickets",
                 "Career Counseling",
                 "Documentation Support",
-                "Pre-departure Guidance",
+                "Money Transfers",
               ].map((service) => (
                 <li
                   key={service}
@@ -251,7 +249,7 @@ export default function Footer() {
                     Mon - Sat: 9:00 AM - 6:00 PM
                   </p>
                   <p className="text-xs text-gray-500">
-                    Sat: 9:00 AM - 2:00 PM
+                    Office Time
                   </p>
                 </div>
               </div>
@@ -266,10 +264,10 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <motion.div
               className="text-center md:text-left"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
+              transition={{ delay: 0.1 }}
             >
               <p className="text-sm text-gray-600 mb-2">
                 © {new Date().getFullYear()} Rising Diamond Consultancy. All
@@ -282,10 +280,10 @@ export default function Footer() {
 
             <motion.div
               className="flex flex-wrap justify-center gap-8 text-sm"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
+              transition={{ delay: 0.2 }}
             >
               <a
                 href="#"

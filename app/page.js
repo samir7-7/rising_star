@@ -85,10 +85,10 @@ export default function Home() {
         <div className="container-responsive">
           <motion.div 
             className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
           >
             <h2 className="text-responsive-lg font-bold text-gray-800 mb-4">
               Our Services
@@ -113,7 +113,7 @@ export default function Home() {
                 whileHover={{ y: -5 }}
               >
                 <div className="text-center">
-                  <div className="bg-gradient-to-br from-blue-500 to-orange-500 p-4 rounded-full w-16 h-16 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <div className="bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center p-4 rounded-full w-16 h-16 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                     <service.icon className="text-white text-2xl" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-800 mb-3">{service.title}</h3>
@@ -167,10 +167,10 @@ export default function Home() {
         <div className="container-responsive">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.4 }}
             >
               <h2 className="text-responsive-lg font-bold text-gray-800 mb-6">
                 Why Choose Rising Diamond?
@@ -190,10 +190,10 @@ export default function Home() {
                   <motion.div
                     key={feature.title}
                     className="flex items-start gap-4"
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 15 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
                   >
                     <div className="bg-blue-500 p-3 rounded-full">
                       <feature.icon className="text-white text-xl" />
@@ -209,10 +209,10 @@ export default function Home() {
 
             <motion.div
               className="relative"
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.4 }}
             >
               <div className="bg-gradient-to-br from-blue-600 to-blue-900 rounded-3xl p-8 text-white">
                 <h3 className="text-2xl font-bold mb-6">Ready to Start Your Journey?</h3>
@@ -254,10 +254,10 @@ export default function Home() {
       <section className="py-20 bg-gradient-to-r from-orange-500 to-orange-600 text-white">
         <div className="container-responsive text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
           >
             <h2 className="text-responsive-lg font-bold mb-6">
               Start Your International Education Journey Today
@@ -284,10 +284,10 @@ export default function Home() {
       <section className="py-16 md:py-20 bg-white" id="contact">
         <div className="container-responsive">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.3 }}
             className="mb-10 text-center"
           >
             <h2 className="text-responsive-lg font-bold text-gray-800">Get in Touch & Our Location</h2>

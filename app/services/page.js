@@ -148,12 +148,12 @@ export default function ServicesPage() {
     <main className="min-h-screen">
       {/* Header */}
       <section className="bg-gradient-to-r from-blue-900 to-blue-700 text-white rounded-b-3xl shadow-lg">
-        <div className="container-responsive py-14 md:py-16">
+        <div className="container-responsive  py-14 md:py-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto text-center"
+            className="max-w-4xl mx-auto text-center py-10"
           >
             <h1 className="text-responsive-lg font-bold mb-4">Our Services</h1>
             <p className="text-blue-100 text-lg leading-relaxed">
