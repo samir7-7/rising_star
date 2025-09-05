@@ -30,21 +30,37 @@ export default function ContactForm() {
     setSubmitStatus(null);
 
     try {
-      // Simulate form submission (replace with actual API call)
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      // Here you would typically send the data to your backend
-      console.log("Form submitted:", formData);
-      
-      setSubmitStatus("success");
-      setFormData({
-        name: "",
-        email: "",
-        country: "",
-        whatsapp: "",
-        subject: "",
-        message: ""
+      // Validate form data
+      if (!formData.name.trim() || !formData.email.trim() || !formData.country || 
+          !formData.whatsapp.trim() || !formData.subject.trim() || !formData.message.trim()) {
+        setSubmitStatus("error");
+        return;
+      }
+
+      // Send data to API
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        setSubmitStatus("success");
+        setFormData({
+          name: "",
+          email: "",
+          country: "",
+          whatsapp: "",
+          subject: "",
+          message: ""
+        });
+      } else {
+        throw new Error(result.error || 'Failed to submit form');
+      }
     } catch (error) {
       console.error("Form submission error:", error);
       setSubmitStatus("error");
