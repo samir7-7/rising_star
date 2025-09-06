@@ -1,7 +1,14 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { FaUser, FaEnvelope, FaGlobe, FaWhatsapp, FaFileAlt, FaPaperPlane } from "react-icons/fa";
+import {
+  FaUser,
+  FaEnvelope,
+  FaGlobe,
+  FaWhatsapp,
+  FaFileAlt,
+  FaPaperPlane,
+} from "react-icons/fa";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -10,7 +17,7 @@ export default function ContactForm() {
     country: "",
     whatsapp: "",
     subject: "",
-    message: ""
+    message: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -18,10 +25,7 @@ export default function ContactForm() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
@@ -30,19 +34,16 @@ export default function ContactForm() {
     setSubmitStatus(null);
 
     try {
-      // Validate form data
-      if (!formData.name.trim() || !formData.email.trim() || !formData.country || 
-          !formData.whatsapp.trim() || !formData.subject.trim() || !formData.message.trim()) {
-        setSubmitStatus("error");
-        return;
+      for (const key in formData) {
+        if (!formData[key].trim()) {
+          setSubmitStatus("error");
+          throw new Error("Please fill all fields");
+        }
       }
 
-      // Send data to API
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
@@ -56,10 +57,10 @@ export default function ContactForm() {
           country: "",
           whatsapp: "",
           subject: "",
-          message: ""
+          message: "",
         });
       } else {
-        throw new Error(result.error || 'Failed to submit form');
+        throw new Error(result.error || "Failed to submit form");
       }
     } catch (error) {
       console.error("Form submission error:", error);
@@ -71,26 +72,202 @@ export default function ContactForm() {
 
   const countries = [
     "Select Country",
-    "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria",
-    "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan",
-    "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia",
-    "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo", "Costa Rica",
-    "Croatia", "Cuba", "Cyprus", "Czech Republic", "Democratic Republic of the Congo", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "Ecuador",
-    "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia", "Fiji", "Finland", "France",
-    "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau",
-    "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland",
-    "Israel", "Italy", "Ivory Coast", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Kuwait",
-    "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg",
-    "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico",
-    "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru",
-    "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Korea", "North Macedonia", "Norway", "Oman",
-    "Pakistan", "Palau", "Palestine", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal",
-    "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe",
-    "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia",
-    "South Africa", "South Korea", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria",
-    "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey",
-    "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu",
-    "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
+    "Afghanistan",
+    "Albania",
+    "Algeria",
+    "Andorra",
+    "Angola",
+    "Antigua and Barbuda",
+    "Argentina",
+    "Armenia",
+    "Australia",
+    "Austria",
+    "Azerbaijan",
+    "Bahamas",
+    "Bahrain",
+    "Bangladesh",
+    "Barbados",
+    "Belarus",
+    "Belgium",
+    "Belize",
+    "Benin",
+    "Bhutan",
+    "Bolivia",
+    "Bosnia and Herzegovina",
+    "Botswana",
+    "Brazil",
+    "Brunei",
+    "Bulgaria",
+    "Burkina Faso",
+    "Burundi",
+    "Cabo Verde",
+    "Cambodia",
+    "Cameroon",
+    "Canada",
+    "Central African Republic",
+    "Chad",
+    "Chile",
+    "China",
+    "Colombia",
+    "Comoros",
+    "Congo",
+    "Costa Rica",
+    "Croatia",
+    "Cuba",
+    "Cyprus",
+    "Czech Republic",
+    "Democratic Republic of the Congo",
+    "Denmark",
+    "Djibouti",
+    "Dominica",
+    "Dominican Republic",
+    "Ecuador",
+    "Egypt",
+    "El Salvador",
+    "Equatorial Guinea",
+    "Eritrea",
+    "Estonia",
+    "Eswatini",
+    "Ethiopia",
+    "Fiji",
+    "Finland",
+    "France",
+    "Gabon",
+    "Gambia",
+    "Georgia",
+    "Germany",
+    "Ghana",
+    "Greece",
+    "Grenada",
+    "Guatemala",
+    "Guinea",
+    "Guinea-Bissau",
+    "Guyana",
+    "Haiti",
+    "Honduras",
+    "Hungary",
+    "Iceland",
+    "India",
+    "Indonesia",
+    "Iran",
+    "Iraq",
+    "Ireland",
+    "Israel",
+    "Italy",
+    "Ivory Coast",
+    "Jamaica",
+    "Japan",
+    "Jordan",
+    "Kazakhstan",
+    "Kenya",
+    "Kiribati",
+    "Kuwait",
+    "Kyrgyzstan",
+    "Laos",
+    "Latvia",
+    "Lebanon",
+    "Lesotho",
+    "Liberia",
+    "Libya",
+    "Liechtenstein",
+    "Lithuania",
+    "Luxembourg",
+    "Madagascar",
+    "Malawi",
+    "Malaysia",
+    "Maldives",
+    "Mali",
+    "Malta",
+    "Marshall Islands",
+    "Mauritania",
+    "Mauritius",
+    "Mexico",
+    "Micronesia",
+    "Moldova",
+    "Monaco",
+    "Mongolia",
+    "Montenegro",
+    "Morocco",
+    "Mozambique",
+    "Myanmar",
+    "Namibia",
+    "Nauru",
+    "Nepal",
+    "Netherlands",
+    "New Zealand",
+    "Nicaragua",
+    "Niger",
+    "Nigeria",
+    "North Korea",
+    "North Macedonia",
+    "Norway",
+    "Oman",
+    "Pakistan",
+    "Palau",
+    "Palestine",
+    "Panama",
+    "Papua New Guinea",
+    "Paraguay",
+    "Peru",
+    "Philippines",
+    "Poland",
+    "Portugal",
+    "Qatar",
+    "Romania",
+    "Russia",
+    "Rwanda",
+    "Saint Kitts and Nevis",
+    "Saint Lucia",
+    "Saint Vincent and the Grenadines",
+    "Samoa",
+    "San Marino",
+    "Sao Tome and Principe",
+    "Saudi Arabia",
+    "Senegal",
+    "Serbia",
+    "Seychelles",
+    "Sierra Leone",
+    "Singapore",
+    "Slovakia",
+    "Slovenia",
+    "Solomon Islands",
+    "Somalia",
+    "South Africa",
+    "South Korea",
+    "South Sudan",
+    "Spain",
+    "Sri Lanka",
+    "Sudan",
+    "Suriname",
+    "Sweden",
+    "Switzerland",
+    "Syria",
+    "Taiwan",
+    "Tajikistan",
+    "Tanzania",
+    "Thailand",
+    "Timor-Leste",
+    "Togo",
+    "Tonga",
+    "Trinidad and Tobago",
+    "Tunisia",
+    "Turkey",
+    "Turkmenistan",
+    "Tuvalu",
+    "Uganda",
+    "Ukraine",
+    "United Arab Emirates",
+    "United Kingdom",
+    "United States",
+    "Uruguay",
+    "Uzbekistan",
+    "Vanuatu",
+    "Vatican City",
+    "Venezuela",
+    "Vietnam",
+    "Yemen",
+    "Zambia",
+    "Zimbabwe",
   ];
 
   return (
@@ -105,20 +282,19 @@ export default function ContactForm() {
           Get In Touch
         </h2>
         <p className="text-gray-600 max-w-md mx-auto">
-          Fill out the form below and we&apos;ll get back to you as soon as possible.
+          Fill out the form below and we&apos;ll get back to you as soon as
+          possible.
         </p>
       </motion.div>
 
       <form onSubmit={handleSubmit} className="space-y-6 flex-1 flex flex-col">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Name Field */}
-          <motion.div
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.3, delay: 0.05 }}
-            className="relative"
-          >
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+          {/* Name */}
+          <div className="relative">
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
               Full Name *
             </label>
             <div className="relative">
@@ -134,16 +310,14 @@ export default function ContactForm() {
                 placeholder="Enter your full name"
               />
             </div>
-          </motion.div>
+          </div>
 
-          {/* Email Field */}
-          <motion.div
-            initial={{ opacity: 0, x: 10 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.3, delay: 0.1 }}
-            className="relative"
-          >
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+          {/* Email */}
+          <div className="relative">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
               Email Address *
             </label>
             <div className="relative">
@@ -159,18 +333,16 @@ export default function ContactForm() {
                 placeholder="Enter your email address"
               />
             </div>
-          </motion.div>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Country Field */}
-          <motion.div
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.3, delay: 0.15 }}
-            className="relative"
-          >
-            <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-2">
+          {/* Country */}
+          <div className="relative">
+            <label
+              htmlFor="country"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
               Country *
             </label>
             <div className="relative">
@@ -183,28 +355,21 @@ export default function ContactForm() {
                 required
                 className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 appearance-none bg-white"
               >
-                {countries.map((country, index) => (
-                  <option key={index} value={country === "Select Country" ? "" : country}>
-                    {country}
+                {countries.map((c, i) => (
+                  <option key={i} value={c === "Select Country" ? "" : c}>
+                    {c}
                   </option>
                 ))}
               </select>
-              <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
-                <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </div>
             </div>
-          </motion.div>
+          </div>
 
-          {/* WhatsApp Field */}
-          <motion.div
-            initial={{ opacity: 0, x: 10 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.3, delay: 0.2 }}
-            className="relative"
-          >
-            <label htmlFor="whatsapp" className="block text-sm font-medium text-gray-700 mb-2">
+          {/* WhatsApp */}
+          <div className="relative">
+            <label
+              htmlFor="whatsapp"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
               WhatsApp Number *
             </label>
             <div className="relative">
@@ -220,17 +385,15 @@ export default function ContactForm() {
                 placeholder="Enter your WhatsApp number"
               />
             </div>
-          </motion.div>
+          </div>
         </div>
 
-        {/* Subject Field */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.25 }}
-          className="relative"
-        >
-          <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+        {/* Subject */}
+        <div className="relative">
+          <label
+            htmlFor="subject"
+            className="block text-sm font-medium text-gray-700 mb-2"
+          >
             Subject *
           </label>
           <div className="relative">
@@ -246,16 +409,14 @@ export default function ContactForm() {
               placeholder="Enter subject of your inquiry"
             />
           </div>
-        </motion.div>
+        </div>
 
-        {/* Message Field */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.3 }}
-          className="relative"
-        >
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+        {/* Message */}
+        <div className="relative">
+          <label
+            htmlFor="message"
+            className="block text-sm font-medium text-gray-700 mb-2"
+          >
             Message *
           </label>
           <textarea
@@ -268,15 +429,10 @@ export default function ContactForm() {
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none"
             placeholder="Tell us about your inquiry or requirements..."
           />
-        </motion.div>
+        </div>
 
-        {/* Submit Button */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.35 }}
-          className="text-center mt-auto"
-        >
+        {/* Submit */}
+        <div className="text-center mt-auto">
           <button
             type="submit"
             disabled={isSubmitting}
@@ -298,26 +454,21 @@ export default function ContactForm() {
               </>
             )}
           </button>
-        </motion.div>
+        </div>
 
-        {/* Status Messages */}
+        {/* Status */}
         {submitStatus && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.2 }}
+          <div
             className={`text-center p-4 rounded-lg ${
               submitStatus === "success"
                 ? "bg-green-50 text-green-800 border border-green-200"
                 : "bg-red-50 text-red-800 border border-red-200"
             }`}
           >
-            {submitStatus === "success" ? (
-              <p className="font-medium">Thank you! Your message has been sent successfully.</p>
-            ) : (
-              <p className="font-medium">Sorry, there was an error sending your message. Please try again.</p>
-            )}
-          </motion.div>
+            {submitStatus === "success"
+              ? "Thank you! Your message has been sent successfully."
+              : "Sorry, there was an error sending your message. Please try again."}
+          </div>
         )}
       </form>
     </div>

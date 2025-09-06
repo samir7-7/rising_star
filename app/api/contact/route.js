@@ -1,51 +1,46 @@
+// app/api/contact/route.js
 import { NextResponse } from "next/server";
-import { Resend } from "resend";
 
-const resend = new Resend({ apiKey: process.env.RESEND_API_KEY });
-
-export async function POST(request) {
+export async function POST(req) {
   try {
-    const body = await request.json();
+    const body = await req.json();
 
-    // Basic validation
-    if (
-      !body.name ||
-      !body.email ||
-      !body.country ||
-      !body.whatsapp ||
-      !body.subject ||
-      !body.message
-    ) {
-      return NextResponse.json(
-        { success: false, error: "All fields are required" },
-        { status: 400 }
-      );
-    }
+    // Build payload safely
+    const payload = {
+      name: body.name || "",
+      email: body.email || "",
+      country: body.country || "",
+      whatsapp: body.whatsapp || "",
+      subject: body.subject || "",
+      message: body.message || "",
+      secret: process.env.FORM_SECRET, // match Apps Script secret
+    };
 
-    // Send email
-    await resend.emails.send({
-      from: process.env.EMAIL_FROM,
-      to: process.env.EMAIL_TO,
-      subject: `New Contact Form Submission: ${body.subject}`,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${body.name}</p>
-        <p><strong>Email:</strong> ${body.email}</p>
-        <p><strong>Country:</strong> ${body.country}</p>
-        <p><strong>WhatsApp:</strong> ${body.whatsapp}</p>
-        <p><strong>Subject:</strong> ${body.subject}</p>
-        <p><strong>Message:</strong> ${body.message}</p>
-      `,
+    // Send data to Google Apps Script Web App
+    const res = await fetch(process.env.GOOGLE_SCRIPT_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
     });
 
+    // Handle non-200 or HTML responses
+    const text = await res.text();
+    let result;
+    try {
+      result = JSON.parse(text);
+    } catch {
+      throw new Error(`Invalid response from Apps Script: ${text}`);
+    }
+
+    if (!res.ok || !result.success) {
+      throw new Error(result.error || "Failed to save form data");
+    }
+
+    return NextResponse.json({ success: true, result });
+  } catch (error) {
+    console.error("Error saving form data:", error);
     return NextResponse.json(
-      { success: true, message: "Email sent successfully!" },
-      { status: 200 }
-    );
-  } catch (err) {
-    console.error("Error sending email:", err);
-    return NextResponse.json(
-      { success: false, error: err.message },
+      { success: false, error: error.message },
       { status: 500 }
     );
   }
