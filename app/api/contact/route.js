@@ -5,7 +5,6 @@ export async function POST(req) {
   try {
     const body = await req.json();
 
-    // Build payload safely
     const payload = {
       name: body.name || "",
       email: body.email || "",
@@ -13,16 +12,17 @@ export async function POST(req) {
       whatsapp: body.whatsapp || "",
       subject: body.subject || "",
       message: body.message || "",
-      secret: process.env.FORM_SECRET, // match Apps Script secret
+      secret: process.env.FORM_SECRET,
     };
 
-    console.log("📤 Sending payload to Google Apps Script:", payload);
+    console.log("📤 Sending payload:", payload);
 
-    // Send data to Google Apps Script Web App
+    const formBody = new URLSearchParams(payload).toString();
+
     const res = await fetch(process.env.GOOGLE_SCRIPT_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: formBody,
     });
 
     const text = await res.text();
